@@ -1,0 +1,110 @@
+﻿<Window
+    x:Class="AppWpfLogin2P2C.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppWpfLogin2P2C"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Morpho Ether"
+    Width="450"
+    Height="550"
+    Icon="/images/LogoLogin Mariposa.png"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Offset="0" Color="#B61CBD" />
+                <GradientStop Offset="1" Color="#358ACB" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Rectangle Fill="Black" Opacity="0.25" />
+        <Image
+            Width="100"
+            Height="100"
+            VerticalAlignment="Top"
+            Source="/images/LogoLogin.png" />
+        <Border
+            Margin="30,100,30,30"
+            BorderBrush="Black"
+            BorderThickness="5"
+            CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="#358ACB" />
+                    <GradientStop Offset="1" Color="#0D4AAE" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    x:Name="lblTitulo"
+                    Grid.ColumnSpan="2"
+                    Content="LOGIN"
+                    FontSize="40" />
+                <Label
+                    x:Name="lblCorreo"
+                    Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    Content="e-mail:" />
+                <TextBox
+                    x:Name="txtCorreo"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    LostFocus="txtCorreo_LostFocus" />
+                <Label
+                    x:Name="lblContraseña"
+                    Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Content="Password:" />
+                <PasswordBox
+                    x:Name="pwdContraseña"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Height="40"
+                    Margin="10,0"
+                    VerticalContentAlignment="Center"
+                    Background="#677580"
+                    FontSize="20"
+                    LostFocus="pwdContraseña_LostFocus"
+                    Opacity="0.6" />
+                <Button
+                    x:Name="btnLimpiar"
+                    Grid.Row="4"
+                    Click="btnRegistroAd_Click"
+                    Content="Nuevo Staff" />
+                <Button
+                    x:Name="btnAceptar"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Margin="60,10,60,10"
+                    Click="btnAceptar_Click"
+                    Content="Aceptar" />
+                <Label
+                    x:Name="lblMensaje"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    FontSize="15"
+                    Foreground="Red" />
+                <Button
+                    x:Name="btnRegistro"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Click="btnRegistro_Click"
+                    Content="Nuevo Usuario" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

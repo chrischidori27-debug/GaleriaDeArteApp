@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="AppWpfLogin2P2C.WinPrincipal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppWpfLogin2P2C"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Morpho Ether"
+    Width="500"
+    Height="450"
+    Icon="/images/LogoLogin Mariposa.png"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Offset="0" Color="#B61CBD" />
+                <GradientStop Offset="1" Color="#358ACB" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Rectangle Fill="Black" Opacity="0.25" />
+        <Image
+            Width="100"
+            Height="100"
+            VerticalAlignment="Top"
+            Source="/images/LogoLogin.png" />
+        <Border
+            Margin="30,100,30,30"
+            BorderBrush="Black"
+            BorderThickness="5"
+            CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="#358ACB" />
+                    <GradientStop Offset="1" Color="#0D4AAE" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+                <Label
+                    x:Name="lblMensaje"
+                    Content="Bienvenido"
+                    FontSize="50" />
+                <Button
+                    x:Name="btnSiguente"
+                    Grid.Row="1"
+                    Width="200"
+                    Content="Siguiente" Click="btnSiguente_Click" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
