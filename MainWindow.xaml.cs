@@ -22,7 +22,7 @@ namespace AppWpfLogin2P2C
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string rutaArchLogin = "E:\\Sing Up\\singUp.txt";
+        private readonly string rutaArchLogin = "C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\Usuarios\\singUp.txt";
         public MainWindow()
         {
             InitializeComponent();
@@ -50,15 +50,21 @@ namespace AppWpfLogin2P2C
                     else
                     {
                         var contenidoArch = File.ReadAllLines(rutaArchLogin);
-                        //bool encontrado = false;
                         foreach(var linea in contenidoArch)
                         {
                             var partes = linea.Split(',');
-                            if(correo.Equals(partes[0]) && contra.Equals(partes[1]))
+                            //if para encontrar usuario
+                            if (correo.Equals(partes[0]) && contra.Equals(partes[1]) && partes[2] == "usuario")
                             {
-                                //encontrado = true;
-                                WinPrincipal winP = new WinPrincipal();
-                                winP.Show();
+                                WinPrincipal winU = new WinPrincipal();
+                                winU.Show();
+                                this.Close();
+                            }
+                            //if para encontrar administrador
+                            else if(correo.Equals(partes[0]) && contra.Equals(partes[1]) && partes[2] == "administrador")
+                            {
+                                DataBinding winAd = new DataBinding();
+                                winAd.Show(); 
                                 this.Close();
                             }
                             else
@@ -87,8 +93,8 @@ namespace AppWpfLogin2P2C
 
         private void btnRegistroAd_Click(object sender, RoutedEventArgs e)
         {
-            WinSing_Up winSingUp = new WinSing_Up();
-            winSingUp.Show();
+            RegistroAdmin winRegAdm = new RegistroAdmin();
+            winRegAdm.Show();
             this.Close();
         }
 

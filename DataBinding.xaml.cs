@@ -42,13 +42,14 @@ namespace AppWpfLogin2P2C
             img.Filter = "Imágenes|*.jpg;*.jpeg;*.png";
 
             bool? result = img.ShowDialog();
-            rutaimg = img.FileName;
+            
             if (result == true)
             {
                 ImagenSelec.Source = new BitmapImage(new Uri(img.FileName));
-                //string destino = System.IO.Path.Combine("Imagenes Clase", System.IO.Path.GetFileName(img.FileName));
+                //string destino = System.IO.Path.Combine("C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\ImagenesG\\", System.IO.Path.GetFileName(img.FileName));
                 //File.Copy(img.FileName, destino, true);
             }
+            rutaimg = img.FileName;
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)

@@ -17,13 +17,13 @@ using System.Text.RegularExpressions;
 namespace AppWpfLogin2P2C
 {
     /// <summary>
-    /// Lógica de interacción para WinSing_Up.xaml
+    /// Lógica de interacción para RegistroAdmin.xaml
     /// </summary>
-    public partial class WinSing_Up : Window
+    public partial class RegistroAdmin : Window
     {
-        private readonly string rutaArchLogin = "C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\Usuarios\\singUp.txt";
-        string tipoUsur = "usuario";
-        public WinSing_Up()
+        private readonly string rutaArchLogin = "E:\\Sing Up\\singUp.txt";
+        string tipoUsur = "administrador";
+        public RegistroAdmin()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace AppWpfLogin2P2C
             }
             else
             {
-              //los campos no estan vacios
+                //los campos no estan vacios
                 string letterPattern = "^[A-Za-z]+$";
                 string numericPattern = "^[0-9]{4,8}$";
                 if (!Regex.IsMatch(txtNombre.Text, letterPattern))
@@ -94,7 +94,7 @@ namespace AppWpfLogin2P2C
                 {
                     lblMensaje.Foreground = Brushes.Red;
                     lblMensaje.Content = "La contraseña debe tener numero, letras, . o #";
-                    if(pwdContraseña.Password.Length < 8)
+                    if (pwdContraseña.Password.Length < 8)
                     {
                         lblMensaje.Content = "La contraseña debe tener un minimo de 8 caractes";
                     }
@@ -105,8 +105,8 @@ namespace AppWpfLogin2P2C
                 //crear el correo a partir del nombre de
                 //string correo = txtNombre.Text.ToLower()[0] + txtPaterno.Text.ToLower() + txtMaterno.Text.ToLower()[0] + "@univalle.edu";
                 //colocar todos los datos en una cadena para guardarla en el archivo
-                string datos = txtCorreo.Text.Trim() +"," +  pwdContraseña.Password+","+ tipoUsur + ","+ txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim() + "," +
-                               txtCelular.Text.Trim()  + "," + txtAñoNacimiento.Text.Trim()+"\n";
+                string datos = txtCorreo.Text.Trim() + "," + pwdContraseña.Password + "," + tipoUsur + "," + txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim() + "," +
+                               txtCelular.Text.Trim() + "," + txtAñoNacimiento.Text.Trim() + "\n";
                 //guardar en el archivo: rutArchLigin = "C:\\singup\\RegistroUsrs.txt"
                 File.AppendAllText(rutaArchLogin, datos, Encoding.UTF8);
 
@@ -125,6 +125,5 @@ namespace AppWpfLogin2P2C
             main.Show();
             this.Close();
         }
-
     }
 }

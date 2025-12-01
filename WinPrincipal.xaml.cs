@@ -27,7 +27,7 @@ namespace AppWpfLogin2P2C
 
         private void btnSiguente_Click(object sender, RoutedEventArgs e)
         {
-            DataBinding data = new DataBinding();
+            CaraUsr data = new CaraUsr();
             data.Show();
             this.Close();
         }

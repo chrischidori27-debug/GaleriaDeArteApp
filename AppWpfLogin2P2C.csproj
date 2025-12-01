@@ -55,16 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CaraUsr.xaml.cs">
+      <DependentUpon>CaraUsr.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBinding.xaml.cs">
       <DependentUpon>DataBinding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Obra.cs" />
+    <Compile Include="RegistroAdmin.xaml.cs">
+      <DependentUpon>RegistroAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinPrincipal.xaml.cs">
       <DependentUpon>WinPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinSing Up.xaml.cs">
       <DependentUpon>WinSing Up.xaml</DependentUpon>
     </Compile>
+    <Page Include="CaraUsr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataBinding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +91,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RegistroAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,7 +146,10 @@
     <Resource Include="images\LogoLogin Mariposa.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Imagenes Clase\" />
+    <Folder Include="ImagenesG\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Usuarios\singUp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
