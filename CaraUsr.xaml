@@ -25,6 +25,13 @@
             Height="100"
             VerticalAlignment="Top"
             Source="/images/LogoLogin.png" />
+        <Button
+            x:Name="btnVolver"
+            Margin="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="btnVolver_Click"
+            Content="VOLVER" />
         <Border
             Margin="30,100,30,30"
             BorderBrush="Black"
@@ -86,7 +93,8 @@
                     x:Name="btnComprar"
                     Grid.Row="2"
                     Width="100"
-                    Content="Comprar" Click="btnComprar_Click" />
+                    Click="btnComprar_Click"
+                    Content="Comprar" />
             </Grid>
         </Border>
     </Grid>

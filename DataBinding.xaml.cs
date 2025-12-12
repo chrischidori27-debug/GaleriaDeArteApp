@@ -23,6 +23,7 @@ namespace AppWpfLogin2P2C
     /// </summary>
     public partial class DataBinding : Window
     {
+        private readonly string rutaArchLogin = "C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\Usuarios\\Obras.txt";
         public ObservableCollection<Obra> ListaObras { get; set; }
         public Obra ObraSelect { get; set; }
         string rutaimg;
@@ -68,7 +69,14 @@ namespace AppWpfLogin2P2C
             double precio = double.Parse(txtPrecio.Text);
             int anio = int.Parse(txtAnioCreacion.Text);
             string estilo = txtEstilo.Text;
-            ListaObras.Add(new Obra(autor, precio, anio, estilo, rutaimg));
+
+            Obra obraAgregada = new Obra(autor,precio,anio,estilo,rutaimg);
+            string datos = obraAgregada.autor + "," + obraAgregada.precio.ToString() + "," + obraAgregada.AnioDeCreacion.ToString() 
+                + "," + obraAgregada.estilo + "," + obraAgregada.ImagenRuta + "\n";
+
+            File.AppendAllText(rutaArchLogin, datos, Encoding.UTF8);
+
+            ListaObras.Add(obraAgregada);
             txtAutor.Clear();
             txtPrecio.Clear();
             txtAnioCreacion.Clear();
@@ -86,6 +94,13 @@ namespace AppWpfLogin2P2C
                 txtEstilo.Text = ObraSelect.estilo;
                 ImagenSelec.Source = new BitmapImage(new Uri(ObraSelect.ImagenRuta, UriKind.RelativeOrAbsolute));
             }
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow winSingUp = new MainWindow();
+            winSingUp.Show();
+            this.Close();
         }
     }
 }

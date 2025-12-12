@@ -39,7 +39,7 @@ namespace AppWpfLogin2P2C
             else
             {
               //los campos no estan vacios
-                string letterPattern = "^[A-Za-z]+$";
+                string letterPattern = "^[A-Za-zñ]+$";
                 string numericPattern = "^[0-9]{4,8}$";
                 if (!Regex.IsMatch(txtNombre.Text, letterPattern))
                 {
@@ -81,6 +81,17 @@ namespace AppWpfLogin2P2C
                     txtAñoNacimiento.Focus();
                     return;
                 }
+                else
+                {
+                    if (int.Parse(txtAñoNacimiento.Text) < 1925 || int.Parse(txtAñoNacimiento.Text) > 2008)
+                    {
+                        lblMensaje.Foreground = Brushes.Red;
+                        lblMensaje.Content = "El rango del año de nacimiento no es aceptable";
+                        txtAñoNacimiento.Clear();
+                        txtAñoNacimiento.Focus();
+                        return;
+                    }
+                }
                 if (!txtCorreo.Text.Contains("@gmail.com"))
                 {
                     lblMensaje.Foreground = Brushes.Red;
@@ -94,13 +105,19 @@ namespace AppWpfLogin2P2C
                 {
                     lblMensaje.Foreground = Brushes.Red;
                     lblMensaje.Content = "La contraseña debe tener numero, letras, . o #";
-                    if(pwdContraseña.Password.Length < 8)
-                    {
-                        lblMensaje.Content = "La contraseña debe tener un minimo de 8 caractes";
-                    }
                     pwdContraseña.Clear();
                     pwdContraseña.Focus();
                     return;
+                }
+                else
+                {
+                    if (pwdContraseña.Password.Length < 8)
+                    {
+                        lblMensaje.Content = "La contraseña debe tener un minimo de 8 caractes";
+                        pwdContraseña.Clear();
+                        pwdContraseña.Focus();
+                        return;
+                    }
                 }
                 //crear el correo a partir del nombre de
                 //string correo = txtNombre.Text.ToLower()[0] + txtPaterno.Text.ToLower() + txtMaterno.Text.ToLower()[0] + "@univalle.edu";

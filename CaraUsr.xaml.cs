@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AppWpfLogin2P2C
 {
@@ -20,7 +22,7 @@ namespace AppWpfLogin2P2C
     /// </summary>
     public partial class CaraUsr : Window
     {
-        private readonly string rutaArchImg = "C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\Usuarios";
+        private readonly string rutaArchObras = "C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\Usuarios\\Obras.txt";
         public ObservableCollection<Obra> ListaObras { get; set; }
         public Obra ObraSelect { get; set; }
         public CaraUsr()
@@ -28,15 +30,21 @@ namespace AppWpfLogin2P2C
             InitializeComponent();
             ListaObras = new ObservableCollection<Obra>
             {
-                new Obra("Picasso",2000,1754,"barroco","C:\\Users\\CHRIS\\source\\repos\\AppWpfProyecto\\AppWpfLogin2P2C\\images\\LogoLogin Mariposa.png"),
-                new Obra("Leonidas",2000,1754,"ya tu sabe",rutaArchImg+"\\fondo.jpg\\"),
-                new Obra("Adan",2000,1754,"barroco", rutaArchImg+"\\fondo.jpg\\"),
-                new Obra("Picasso",2000,1754,"barroco", rutaArchImg+"\\fondo.jpg\\")
             };
             DataContext = this;
             lstBObras.ItemsSource = ListaObras;
+            AgregarObras();
         }
-
+        public void AgregarObras()
+        {
+            var contenidoArch = File.ReadAllLines(rutaArchObras);
+            foreach (var linea in contenidoArch)
+            {
+                var partes = linea.Split(',');
+                Obra ObraAgregada = new Obra(partes[0], double.Parse(partes[1]), int.Parse(partes[2]), partes[3], @partes[4]);
+                ListaObras.Add(ObraAgregada);
+            }
+        }
         private void btnComprar_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Obra Comprada");
@@ -44,6 +52,13 @@ namespace AppWpfLogin2P2C
         }
         private void lstBObras_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow winSingUp = new MainWindow();
+            winSingUp.Show();
+            this.Close();
         }
     }
 }

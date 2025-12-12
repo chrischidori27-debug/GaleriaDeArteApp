@@ -151,5 +151,8 @@
   <ItemGroup>
     <Resource Include="Usuarios\singUp.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Usuarios\Obras.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
