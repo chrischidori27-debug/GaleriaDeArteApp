@@ -30,7 +30,8 @@
             Margin="30"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="VOLVER" Click="btnVolver_Click" />
+            Click="btnVolver_Click"
+            Content="VOLVER" />
         <Border
             Margin="30,100,30,30"
             BorderBrush="Black"
@@ -111,7 +112,13 @@
                         <TextBox x:Name="txtAnioCreacion" />
 
                         <Label Content="Estilo:" />
-                        <TextBox x:Name="txtEstilo" />
+                        <ComboBox x:Name="cmbEstilo">
+                            <ComboBoxItem Content="Realismo" />
+                            <ComboBoxItem Content="Gotico" />
+                            <ComboBoxItem Content="Subrealismo" />
+                            <ComboBoxItem Content="Modernismo" />
+                            <ComboBoxItem Content="Contemporaneo" />
+                        </ComboBox>
                         <StackPanel Margin="10" Orientation="Horizontal">
                             <Button
                                 x:Name="btnAgregarImg"

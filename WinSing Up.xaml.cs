@@ -40,7 +40,8 @@ namespace AppWpfLogin2P2C
             {
               //los campos no estan vacios
                 string letterPattern = "^[A-Za-zñ]+$";
-                string numericPattern = "^[0-9]{4,8}$";
+                string numericPattern = "^[0-9]{4}$";
+                string celularPattern = "^[0-9]{8}$";
                 if (!Regex.IsMatch(txtNombre.Text, letterPattern))
                 {
                     lblMensaje.Foreground = Brushes.Red;
@@ -65,7 +66,7 @@ namespace AppWpfLogin2P2C
                     txtPaterno.Focus();
                     return;
                 }
-                if (!Regex.IsMatch(txtCelular.Text, numericPattern))
+                if (!Regex.IsMatch(txtCelular.Text, celularPattern))
                 {
                     lblMensaje.Foreground = Brushes.Red;
                     lblMensaje.Content = "El formato del celular es incorrecto";

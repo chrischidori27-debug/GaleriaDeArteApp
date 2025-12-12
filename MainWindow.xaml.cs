@@ -99,7 +99,7 @@ namespace AppWpfLogin2P2C
         }
 
         private void txtCorreo_LostFocus(object sender, RoutedEventArgs e) {
-            string emailPattern = "^[a-zA-A0-9._%$]{3,}@[a-zA-Z0-9._-]{3,}.[a-zA-Z]{2,}";
+            string emailPattern = "^[a-zA-Z0-9._%$]{3,}@[a-zA-Z0-9._-]{3,}.[a-zA-Z]{2,}";
             if(!Regex.IsMatch(txtCorreo.Text, emailPattern))
             {
                 lblMensaje.Foreground = Brushes.Red;

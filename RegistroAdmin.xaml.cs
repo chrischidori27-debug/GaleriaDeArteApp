@@ -40,7 +40,8 @@ namespace AppWpfLogin2P2C
             {
                 //los campos no estan vacios
                 string letterPattern = "^[A-Za-zñ]+$";
-                string numericPattern = "^[0-9]{4,8}$";
+                string numericPattern = "^[0-9]{4}$";
+                string celularPattern = "^[0-9]{8}$";
                 if (!Regex.IsMatch(txtNombre.Text, letterPattern))
                 {
                     lblMensaje.Foreground = Brushes.Red;
@@ -65,7 +66,7 @@ namespace AppWpfLogin2P2C
                     txtPaterno.Focus();
                     return;
                 }
-                if (!Regex.IsMatch(txtCelular.Text, numericPattern))
+                if (!Regex.IsMatch(txtCelular.Text, celularPattern))
                 {
                     lblMensaje.Foreground = Brushes.Red;
                     lblMensaje.Content = "El formato del celular es incorrecto";
@@ -122,8 +123,11 @@ namespace AppWpfLogin2P2C
                     //crear el correo a partir del nombre de
                     //string correo = txtNombre.Text.ToLower()[0] + txtPaterno.Text.ToLower() + txtMaterno.Text.ToLower()[0] + "@univalle.edu";
                     //colocar todos los datos en una cadena para guardarla en el archivo
-                string datos = txtCorreo.Text.Trim() + "," + pwdContraseña.Password + "," + tipoUsur + "," + txtNombre.Text.Trim() + " " + txtPaterno.Text.Trim() + " " + txtMaterno.Text.Trim() + "," +
-                                   txtCelular.Text.Trim() + "," + txtAñoNacimiento.Text.Trim() + "\n";
+                Administrador adminCreado = new Administrador(txtNombre.Text,txtPaterno.Text,txtMaterno.Text,int.Parse(txtAñoNacimiento.Text),
+                    txtCorreo.Text,int.Parse(txtCelular.Text),pwdContraseña.Password,txtCodigoAdm.Text);
+
+                string datos = adminCreado.CorreoElec + "," + adminCreado.Contraseña + "," + tipoUsur + "," + adminCreado.Nombre + " " + adminCreado.Paterno + " " + adminCreado.Materno + "," +
+                                   adminCreado.Telefono.ToString() + "," + adminCreado.AnioNac.ToString() + "," + adminCreado.Codigo + "\n";
                 //guardar en el archivo: rutArchLigin = "C:\\singup\\RegistroUsrs.txt"
                 File.AppendAllText(rutaArchLogin, datos, Encoding.UTF8);
 
