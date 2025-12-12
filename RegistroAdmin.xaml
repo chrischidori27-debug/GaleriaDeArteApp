@@ -145,7 +145,7 @@
                     Content="Aceptar" />
                 <Label
                     x:Name="lblMensaje"
-                    Grid.Row="9"
+                    Grid.Row="10"
                     Grid.ColumnSpan="2"
                     FontSize="15"
                     Foreground="Red" />
